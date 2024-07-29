@@ -419,7 +419,7 @@ QString decrypt(QString ci, QString key)
 	}
 
 	
-	res = nullsize +"  "+res.left(res.size() - nullsize - blocksize);
+	res = res.left(res.size() - nullsize - blocksize);
 	return res;
 }
 QString xor_(QString a, QString b)
