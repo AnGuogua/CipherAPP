@@ -171,20 +171,20 @@ QString encrypt(QString pt, QString key)
 	for (int i = 1; i <= totalblocks; i++)
 	{
 
-		int type = 0;
+		/*int type = 0;
 		for (QChar ch : cib->key)
 		{
 			type += ch.unicode();
 		}
 		type %= 2;//生成一个“随机”的
 		if (type == 0)
-		{
+		{*/
 			cib->ci = xor_(cib->pt, cib->key);//异或
-		}
+		/*}
 		if (type == 1)
 		{
 			cib->ci = xand_(cib->pt, cib->key);//异与
-		}
+		}*/
 		cib = cib->next;
 
 	}
@@ -373,22 +373,22 @@ QString decrypt(QString ci, QString key)
 	cib = first;
 	for (int i = 1; i <= totalblocks; i++)
 	{
-		int type = 0;
+		/*int type = 0;
 		for (QChar ch : cib->key)
 		{
 			type += ch.unicode();
 		}
 		type %= 2;
 		if (type == 0)
-		{
+		{*/
 			//解异或
 			cib->pt = xor_(cib->ci, cib->key);
-		}
+		/*}
 		if (type == 1)
 		{
 			//解异或
 			cib->pt = xand_(cib->ci, cib->key);
-		}
+		}*/ 
 		cib = cib->next;
 	}
 	//拼接
