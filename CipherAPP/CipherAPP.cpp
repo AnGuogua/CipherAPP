@@ -8,16 +8,14 @@ CipherAPP::CipherAPP(QWidget *parent)
 	connect(ui.decrypt, SIGNAL(clicked()), this, SLOT(Decrypt_click()));
 	connect(ui.setting, SIGNAL(clicked()), this, SLOT(Setting_click()));
 	connect(ui.copy, SIGNAL(clicked()), this, SLOT(Copy_click()));
-	connect(ui.file, SIGNAL(clicked()), this, SLOT(File_click()));
 	connect(ui.radioButton, SIGNAL(toggled()), this, SLOT(Autocopy()));
 	sets = new Setting();
-	file = new File();
 }
 
 CipherAPP::~CipherAPP()
 {
+
 	delete sets;
-	delete file;
 }
 void CipherAPP::Encrypt_click()
 {
@@ -33,7 +31,7 @@ void CipherAPP::Encrypt_click()
 	QString key = ui.key->text();
 	QRegularExpression regex("[^abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,.+-*;:`~!@#$%^&/|[]{}()<>]");
 	key = key.remove(regex);
-	QString ci = encrypt(pt, key, false);
+	QString ci = encrypt(pt, key);
 	ui.output->setPlainText(ci);
 	if (autocopy)
 	{
@@ -55,7 +53,7 @@ void CipherAPP::Decrypt_click()
 		ui.Status->setText("Error");
 		ui.output->setPlainText("Please enter CipherText");
 	}
-	QString pt = decrypt(ci, key,false);
+	QString pt = decrypt(ci, key);
 	ui.output->setPlainText(pt);
 	if (autocopy)
 	{
@@ -68,11 +66,8 @@ void CipherAPP::Decrypt_click()
 
 void CipherAPP::Setting_click()
 {
-	if (!setting_start)
-	{
-		sets->show();
-		setting_start = true;
-	}
+	
+	sets->show();
 }
 
 void CipherAPP::Copy_click()
@@ -91,9 +86,4 @@ void CipherAPP::Autocopy(bool checked)
 	{
 		autocopy = false;
 	}
-}
-
-void CipherAPP::File_click()
-{
-	file->show();
 }

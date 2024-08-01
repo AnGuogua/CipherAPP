@@ -15,8 +15,8 @@ struct ciblock
 	ciblock *next;
 };
 
-QString encrypt( QString pt, QString key, bool base64 );
-QString decrypt(QString ci, QString key, bool base64);
+QString encrypt( QString pt, QString key);
+QString decrypt(QString ci, QString key);
 ciblock *mergeSort(ciblock *head);
 ciblock *mergeTwoLists(ciblock *l1, ciblock *l2);
 ciblock *mergeSort2(ciblock *head);
