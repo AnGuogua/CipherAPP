@@ -15,6 +15,11 @@ class Setting : public QWidget
 public:
 	Setting(QWidget *parent = nullptr);
 	~Setting();
+	void closeEvent(QCloseEvent *event) override
+	{
+		// 自定义关闭行为（如果有）
+		setting_start = false;
+	}
 
 private:
 	Ui::SettingClass ui;

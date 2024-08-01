@@ -61,18 +61,18 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <ExecutablePath>D:\信息技术\Libs\Crypto++;$(ExecutablePath)</ExecutablePath>
-    <IncludePath>D:\信息技术\Libs\Crypto++;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\信息技术\Libs\Crypto++;$(LibraryPath)</LibraryPath>
-    <ExternalIncludePath>D:\信息技术\Libs\Crypto++;$(ExternalIncludePath)</ExternalIncludePath>
-    <ReferencePath>D:\信息技术\Libs\Crypto++;$(ReferencePath)</ReferencePath>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <IncludePath>./Crypto++;$(IncludePath)</IncludePath>
+    <LibraryPath>./Crypto++;$(LibraryPath)</LibraryPath>
+    <ExternalIncludePath>./Crypto++;$(ExternalIncludePath)</ExternalIncludePath>
+    <ReferencePath>./Crypto++;$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <ExecutablePath>D:\信息技术\Libs\Crypto++;$(VC_ExecutablePath_x64);$(CommonExecutablePath)</ExecutablePath>
-    <IncludePath>D:\信息技术\Libs\Crypto++;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <ExternalIncludePath>D:\信息技术\Libs\Crypto++;$(VC_IncludePath);$(WindowsSDK_IncludePath);</ExternalIncludePath>
+    <ExecutablePath>$(VC_ExecutablePath_x64);$(CommonExecutablePath)</ExecutablePath>
+    <IncludePath>D:\信息技术\Libs\uchardet;D:\信息技术\Libs\Crypto++;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <ExternalIncludePath>D:\信息技术\Libs\uchardet;D:\信息技术\Libs\Crypto++;$(VC_IncludePath);$(WindowsSDK_IncludePath);</ExternalIncludePath>
     <ReferencePath>D:\信息技术\Libs\Crypto++;$(VC_ReferencesPath_x64);</ReferencePath>
-    <LibraryPath>D:\信息技术\Libs\Crypto++;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
+    <LibraryPath>D:\信息技术\Libs\uchardet;D:\信息技术\Libs\Crypto++;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
     <LibraryWPath>D:\信息技术\Libs\Crypto++;$(WindowsSDK_MetadataPath);</LibraryWPath>
     <SourcePath>D:\信息技术\Libs\Crypto++;$(VC_SourcePath);</SourcePath>
   </PropertyGroup>
@@ -118,6 +118,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="File.cpp" />
     <ClCompile Include="Setting.cpp">
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
@@ -130,10 +131,12 @@
     <ClCompile Include="cipher.cpp" />
     <ClCompile Include="CipherAPP.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="File.ui" />
     <QtUic Include="Setting.ui" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cipher.h" />
+    <QtMoc Include="File.h" />
     <ClInclude Include="parent.h" />
     <ClInclude Include="resource1.h" />
     <QtMoc Include="Setting.h" />

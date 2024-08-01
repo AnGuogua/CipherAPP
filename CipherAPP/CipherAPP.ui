@@ -195,6 +195,19 @@
      <string>Note：Please use &quot;\n&quot; to wrap line</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="file">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>170</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Open File</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

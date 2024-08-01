@@ -46,6 +46,9 @@
     <ClCompile Include="Setting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="File.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cipher.h">
@@ -62,9 +65,15 @@
     <QtMoc Include="Setting.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="File.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Setting.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="File.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

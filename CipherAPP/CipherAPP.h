@@ -5,15 +5,16 @@
 
 #include <QtWidgets/QMainWindow>
 #include <QWidget>
-#include<QTextCursor>
-#include<Qstring>
-#include<QClipboard>
+#include <QTextCursor>
+#include <Qstring>
+#include <QClipboard>
 #include <QMessageBox>
 #include <QRegularExpression>
-#include<QFileDialog>
+#include <QFileDialog>
 #include "ui_CipherAPP.h"
 #include "cipher.h"
-#include"setting.h"
+#include "setting.h"
+#include "file.h"
 
 class Setting;//前向声明
 class CipherAPP : public QMainWindow
@@ -28,15 +29,18 @@ class CipherAPP : public QMainWindow
 		// 自定义关闭行为（如果有）
 		QApplication::quit();
 	}
+	
 
 	private:
 	Ui::CipherAPPClass ui;
 	Setting* sets;
+	File *file;
 	public slots:
 	void Encrypt_click();
 	void Decrypt_click();
 	void Setting_click();
 	void Copy_click();
 	void Autocopy(bool checked);
+	void File_click();
 };
 #endif // !CIPHERAPP_H_

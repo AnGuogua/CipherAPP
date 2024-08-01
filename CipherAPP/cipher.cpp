@@ -1,7 +1,7 @@
 #include "cipher.h"
 
 long long totalblocks = 0;
-QString encrypt(QString pt, QString key)
+QString encrypt(QString pt, QString key,bool base64)
 {
 	//对字符串进行分块处理
 	struct ciblock *cib = new ciblock;
@@ -198,7 +198,7 @@ QString encrypt(QString pt, QString key)
 		res += cib->ci;
 		cib = cib->next;
 	}
-	if (skipBase64)
+	if (skipBase64||base64)
 	{
 		return res;
 	}
@@ -206,10 +206,10 @@ QString encrypt(QString pt, QString key)
 	CryptoPP::StringSource ss(res.toStdString(), true, new CryptoPP::Base64Encoder(new CryptoPP::StringSink(encoded)));
 	return QString::fromStdString(encoded);
 }
-QString decrypt(QString ci, QString key)
+QString decrypt(QString ci, QString key, bool base64)
 {
 	//解码Base64
-	if (!skipBase64)
+	if (!skipBase64||!base64)
 	{
 		std::string decoded;
 		CryptoPP::StringSource ss(ci.toStdString(), true, new CryptoPP::Base64Decoder(new CryptoPP::StringSink(decoded)));
