@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/CipherAPP/ICU
+/CipherAPP/uchardet
+/新建 文本文档.txt
+/CipherAPP-1.0.7z
